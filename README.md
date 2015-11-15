@@ -6,7 +6,7 @@ The Arduino boards - at least the ATmega328-based - rely on interrupts to count 
 
  On the ATmega328 no difference is made between interrupt routines: it has no priority support. That means that if you declare [an interrupt service routine](https://www.arduino.cc/en/Reference/AttachInterrupt), its execution will differ the execution of all the others interrupt routines, including the one responsible to count the time.
 
- ## Prove it! Show me the code!
+ ## Prove it, show me the code
 
 This can be simply observed in the [IRQ_micros](/IRQ_micros) and [IRQ_millis](/IRQ_millis) sketches. They use a button bound to the 3nd pin to trigger an interrupt service routine. This routine will then execute a long running task and measure its duration using respectively [micros()](https://www.arduino.cc/en/Reference/Micros) and [millis()](https://www.arduino.cc/en/Reference/Millis). We then re-run the long running task outside the interrupt and measures its duration again. You will easily observe that the time count have stopped during the interrupt and that the time really elapsed is not filled again after the interrupt.
 
