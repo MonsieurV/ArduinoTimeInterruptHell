@@ -1,6 +1,6 @@
 # Arduino IRQs and the time count hell
 
-The Arduino boards - at least the ATmega328-based - rely on interrupts to count the time. Due to the simple interrupt management, disabling or using custom interrupts on Arduino can thus lead to confusing behavior concerning time. Bad counts can happened!
+The Arduino boards - at least the ATmega328P-based - rely on interrupts to count the time. Due to the simple interrupt management, disabling or using custom interrupts on Arduino can thus lead to confusing behavior concerning time. Bad counts can happened!
 
 ## The point on Arduino IRQs and time count
 
@@ -28,9 +28,11 @@ If you rely on Arduino time functions (`micros()`, `millis()`) to process time-s
 
 You should always code very direct and fast interrupt routines.
 
+Even you need to make advanced use of interrupts, you'll need to dig [the Arduino documentation](http://playground.arduino.cc/Code/Interrupts) and [AVR](http://www.atmel.com/devices/ATMEGA328P.aspx) datasheets. EngBlaze have done two great blog posts on interrupts: [Arduino interrupts](http://www.engblaze.com/we-interrupt-this-program-to-bring-you-a-tutorial-on-arduino-interrupts/) and  [AVR timer interrupts](http://www.engblaze.com/microcontroller-tutorial-avr-and-arduino-timer-interrupts/).
+
 --------------------------------
 
-Interested by this note? Check out [our blog](http://blog.ytotech.com).
-Something to say? You're welcome, [please send-me a mail](mailto:yoan@ytotech.com).
+Interested by this note? You may check out [our blog](http://blog.ytotech.com).
+Something to say? You're welcome, [please send-me an email](mailto:yoan@ytotech.com).
 
 TODO: test with the [Arduino Time library](http://playground.arduino.cc/code/time).
