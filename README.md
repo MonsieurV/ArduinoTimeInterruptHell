@@ -32,14 +32,14 @@ The logical behind it is that for each interrupt, the microcontroller disable gl
 
 Check the [IRQ_on_IRQ_micros](/IRQ_on_IRQ_micros) sketch for an example.
 
-If we trigger one time the button, our ISR can run normally and is only interrupted by the time count interrupts:
+If we trigger one time the button, our ISR can run normally and is only interrupted by the time count interrupts.
 
 ```
 Duration of the busy-loop (during the interrupt): 660256 us
 Duration of the busy-loop (outside an interrupt): 660704 us
 ```
 
-But this time nothing preserve our ISR to be interrupted by itself: if we trigger multiple times (here 10 consecutive times) the ISR is interrupted by itself as many times, in a stacking of ISRs:
+But this time nothing preserve our ISR to be interrupted by itself: if we tap multiple times on the button (here 10 consecutive times) the ISR is first triggered then interrupted by itself as many times (here 9 times). We have a kind of stack of ISRs.
 
 ```
 Duration of the busy-loop (during the interrupt): 5510788 us
