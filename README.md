@@ -8,6 +8,8 @@ The Arduino boards - at least the ATmega328P-based - rely on interrupts to count
 
 ### Prove it: show me the code
 
+![](/circuit_setup.png?raw=true "Circuit setup")
+
 This can be simply observed in the [IRQ_micros](/IRQ_micros) and [IRQ_millis](/IRQ_millis) sketches. They use a button bound to the 3nd pin to trigger an interrupt service routine. This routine will then execute a long running task and measure its duration using respectively [micros()](https://www.arduino.cc/en/Reference/Micros) and [millis()](https://www.arduino.cc/en/Reference/Millis). We then re-run the long running task outside the interrupt and measures its duration again. You will easily observe that the time count have stopped during the interrupt and that the time really elapsed is not filled again after the interrupt.
 
 ```
